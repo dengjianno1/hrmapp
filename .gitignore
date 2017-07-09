@@ -27,6 +27,6 @@ build
 .classpath
 .project
 .springBeans
-WebContent/MATE-INF/
+WebContent/META-INF/
 WebContent/WEB-INF/lib/
-WebContent/update/
+WebContent/upload
