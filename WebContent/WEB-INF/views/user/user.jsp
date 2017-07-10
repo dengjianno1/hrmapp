@@ -8,8 +8,15 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<%@ include file="../menu.html" %>
+	<table border="1" cellspacing="0" cellpadding="10">
+	<tr><th>登录名</th><th>密码</th><th>用户名</th><th>状态</th><th>创建时间</th><th colspan="2">操作</th></tr>
 	<c:forEach var="user" items="${users}">
-	<p>${user.toString()}</p>
+	<tr><td>${user.loginname}</td><td>${user.password}</td><td>${user.username}</td>
+	<td>${user.status}</td><td>${user.createDate}</td>
+	<td><a href="/hrmapp_v2/user/updateuserform?id=${user.id}">修改</a></td>
+	<td><a href="/hrmapp_v2/user/removeuser?id=${user.id}">删除</a></td></tr>
 	</c:forEach>
+	</table>
 </body>
 </html>
