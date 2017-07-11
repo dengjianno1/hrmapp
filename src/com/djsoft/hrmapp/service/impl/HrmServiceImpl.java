@@ -10,7 +10,11 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.djsoft.hrmapp.dao.DeptDao;
+import com.djsoft.hrmapp.dao.JobDao;
 import com.djsoft.hrmapp.dao.UserDao;
+import com.djsoft.hrmapp.domain.Dept;
+import com.djsoft.hrmapp.domain.Job;
 import com.djsoft.hrmapp.domain.User;
 import com.djsoft.hrmapp.service.HrmService;
 
@@ -28,6 +32,10 @@ public class HrmServiceImpl implements HrmService {
 	 */
 	@Autowired
 	private UserDao userDao;
+	@Autowired
+	private DeptDao deptDao;
+	@Autowired
+	private JobDao jobDao;
 	
 	/********************** 用户服务接口实现 ****************************/
 	/**
@@ -93,5 +101,33 @@ public class HrmServiceImpl implements HrmService {
 	@Override
 	public void modifyUser(User user) {
 		userDao.update(user);
+	}
+	/**
+	 * HrmServiceImpl接口findDept方法实现
+	 */
+	@Override
+	public List<Dept> findDept() {
+		return deptDao.selectDept();
+	}
+	
+	@Override
+	public void addDept(Dept dept) {
+		deptDao.addDept(dept);
+	}
+	@Override
+	public void removeDeptById(int id) {
+		deptDao.deleteById(id);
+	}
+	@Override
+	public Dept findDeptById(int id) {
+		return deptDao.selectById(id);
+	}
+	@Override
+	public void modifyDept(Dept dept) {
+		deptDao.update(dept);
+	}
+	@Override
+	public List<Job> findJob() {
+		return jobDao.selectJob();
 	}
 }

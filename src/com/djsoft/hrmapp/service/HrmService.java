@@ -2,7 +2,8 @@ package com.djsoft.hrmapp.service;
 
 import java.util.List;
 
-
+import com.djsoft.hrmapp.domain.Dept;
+import com.djsoft.hrmapp.domain.Job;
 import com.djsoft.hrmapp.domain.User;
 
 
@@ -40,4 +41,33 @@ public interface HrmService {
 	 * @param user 用户对象
 	 */
 	void modifyUser(User user);
+	/**
+	 * 获得所有部门
+	 * @return 部门对象的List集合
+	 */
+	List<Dept> findDept();
+	/**
+	 * 添加部门
+	 * @param dept 部门对象
+	 */
+	void addDept(Dept dept);
+	/**
+	 * 根据id删除部门
+	 * @param id
+	 */
+	void removeDeptById(int id);
+	/**
+	 * 根据id查询部门
+	 * @param id
+	 */
+	Dept findDeptById(int id);
+	/**
+	 * 修改部门
+	 * @param dept
+	 */
+	void modifyDept(Dept dept);
+	/**
+	 * 获得所有职位
+	 */
+	List<Job> findJob();
 }

@@ -5,17 +5,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>用户查询</title>
+<title>职位查询</title>
 </head>
 <body>
 	<%@ include file="../menu.html" %>
 	<table border="1" cellspacing="0" cellpadding="10">
-	<tr><th>登录名</th><th>密码</th><th>用户名</th><th>状态</th><th>创建时间</th><th colspan="2">操作</th></tr>
-	<c:forEach var="user" items="${users}">
-	<tr><td>${user.loginname}</td><td>${user.password}</td><td>${user.username}</td>
-	<td>${user.status}</td><td>${user.createDate}</td>
-	<td><a href="/hrmapp_v2/user/updateuserform?id=${user.id}">修改</a></td>
-	<td><a href="/hrmapp_v2/user/removeuser?id=${user.id}">删除</a></td></tr>
+	<tr><th>职位名称</th><th>详细信息</th><th colspan="2">操作</th></tr>
+	<c:forEach var="job" items="${jobs}">
+	<tr><td>${job.name}</td><td>${job.remark}</td>
+	<td><a href="/hrmapp_v2/job/updatejobform?id=${job.id}">修改</a></td>
+	<td><a href="/hrmapp_v2/job/removejob?id=${job.id}">删除</a></td></tr>
 	</c:forEach>
 	</table>
 </body>
