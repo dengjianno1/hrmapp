@@ -11,4 +11,7 @@ import static com.djsoft.hrmapp.util.comman.HrmConstants.JOBTABLE;
 public interface JobDao {
 	@Select("select * from "+JOBTABLE)
 	List<Job> selectJob();
+	
+	@Select("select * from "+JOBTABLE+" where id=#{id}")
+	Job selectById(int id);
 }

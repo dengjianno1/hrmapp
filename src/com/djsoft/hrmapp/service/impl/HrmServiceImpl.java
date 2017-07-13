@@ -11,9 +11,13 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.djsoft.hrmapp.dao.DeptDao;
+import com.djsoft.hrmapp.dao.DocumentDao;
+import com.djsoft.hrmapp.dao.EmployeeDao;
 import com.djsoft.hrmapp.dao.JobDao;
 import com.djsoft.hrmapp.dao.UserDao;
 import com.djsoft.hrmapp.domain.Dept;
+import com.djsoft.hrmapp.domain.Document;
+import com.djsoft.hrmapp.domain.Employee;
 import com.djsoft.hrmapp.domain.Job;
 import com.djsoft.hrmapp.domain.User;
 import com.djsoft.hrmapp.service.HrmService;
@@ -36,6 +40,10 @@ public class HrmServiceImpl implements HrmService {
 	private DeptDao deptDao;
 	@Autowired
 	private JobDao jobDao;
+	@Autowired
+	private EmployeeDao employeeDao;
+	@Autowired
+	private DocumentDao documentDao;
 	
 	/********************** 用户服务接口实现 ****************************/
 	/**
@@ -129,5 +137,21 @@ public class HrmServiceImpl implements HrmService {
 	@Override
 	public List<Job> findJob() {
 		return jobDao.selectJob();
+	}
+	@Override
+	public List<Employee> findEmployee() {
+		return employeeDao.selectEmployee();
+	}
+	@Override
+	public void addDocument(Document document) {
+		documentDao.addDocument(document);
+	}
+	@Override
+	public List<Document> findDocument() {
+		return documentDao.selectDocument();
+	}
+	@Override
+	public Document findDocumentById(int id) {
+		return documentDao.selectDocumentById(id);
 	}
 }

@@ -3,6 +3,8 @@ package com.djsoft.hrmapp.service;
 import java.util.List;
 
 import com.djsoft.hrmapp.domain.Dept;
+import com.djsoft.hrmapp.domain.Document;
+import com.djsoft.hrmapp.domain.Employee;
 import com.djsoft.hrmapp.domain.Job;
 import com.djsoft.hrmapp.domain.User;
 
@@ -70,4 +72,20 @@ public interface HrmService {
 	 * 获得所有职位
 	 */
 	List<Job> findJob();
+	/**
+	 * 获得所有员工
+	 */
+	List<Employee> findEmployee();
+	/**
+	 * 添加文档
+	 */
+	void addDocument(Document document);
+	/**
+	 * 获得所有文档
+	 */
+	List<Document> findDocument();
+	/**
+	 * 根据Id查询文档
+	 */
+	Document findDocumentById(int id);
 }

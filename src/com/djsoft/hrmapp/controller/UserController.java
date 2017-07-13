@@ -2,8 +2,6 @@ package com.djsoft.hrmapp.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -11,14 +9,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.djsoft.hrmapp.domain.User;
 import com.djsoft.hrmapp.service.HrmService;
-import com.djsoft.hrmapp.util.comman.HrmConstants;
 
 @Controller
+@SessionAttributes("user")
 public class UserController {
 	/**
 	 * 自动注入UserService
@@ -33,13 +31,11 @@ public class UserController {
 	 * @return 跳转的视图
 	 */
 	@RequestMapping("/login")
-	public String login(@RequestParam("loginname") String loginname,@RequestParam("password") String password,RedirectAttributes model){
+	public String login(@RequestParam("loginname") String loginname,@RequestParam("password") String password,Model model){
 		//调用业务逻辑组件判断用户是否可以登录
 		User user=hrmService.login(loginname, password);
 		if (user!=null) {
-			//将用户保存到HttpSession当中
-			//session.setAttribute(HrmConstants.USER_SESSION, user);
-			model.addFlashAttribute("user", user);
+			model.addAttribute("user", user);
 			//客户端跳转到main页面
 			return "redirect:/main";
 		}else {

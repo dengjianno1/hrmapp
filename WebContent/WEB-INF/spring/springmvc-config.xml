@@ -27,4 +27,14 @@
 	
 	<!-- 静态资源访问 -->
 	<mvc:resources location="/resources/" mapping="/resources/**"></mvc:resources>
+	
+	    <!-- 定义Spring MVC的拦截器 -->
+    <mvc:interceptors>
+    	<mvc:interceptor>
+    		<!-- 拦截所有请求 -->
+    		<mvc:mapping path="/**"/>
+    		<!-- 自定义判断用户权限的拦截类 -->  
+    	 	<bean class="com.djsoft.hrmapp.interceptor.AuthorizedInterceptor"/>
+    	</mvc:interceptor>
+    </mvc:interceptors>
 </beans>

@@ -29,6 +29,7 @@ public class Employee{
 	private String speciality;			// 专业
 	private String hobby;				// 爱好
 	private String remark;				// 备注
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private java.util.Date createDate;	// 建档日期
 	// 无参数构造器
 	public Employee() {

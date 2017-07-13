@@ -25,15 +25,16 @@
 				<td><a href="/hrmapp_v2/resources/adddeptform.jsp">添加部门</a><br></td>
 				<td><a href="/hrmapp_v2/job/selectjob">职位查询</a></td>
 				<td><a href="job/addjob">添加职位</a></td>
-				<td><a href="/employee/selectemployee">员工查询</a></td>
+				<td><a href="/hrmapp_v2/employee/selectemployee">员工查询</a></td>
 				<td><a href="employee/addemployee">添加员工</a></td>
 				<td><a href="/notice/selectnotice">公告查询</a></td>
 				<td><a href="notice/addnotice">添加公告</a></td>
-				<td><a href="/document/selectdocument">文档查询</a></td>
-				<td><a href="document/adddocument">上传文档</a></td>
+				<td><a href="/hrmapp_v2/document/selectdocument">文档查询</a></td>
+				<td><a href="/hrmapp_v2/resources/adddocumentform.jsp">上传文档</a></td>
 			</tr>
 		</tbody>
 	</table>
+	<b>欢迎：${sessionScope.user.username}</b>&nbsp;&nbsp;<a href="/hrmapp_v2/removesession" >退出</a>
 	<br><br><br>
 </body>
 </html>

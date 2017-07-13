@@ -4,14 +4,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>添加部门</title>
+<title>Insert title here</title>
 </head>
 <body>
 <%@ include file="/WEB-INF/views/menu.html" %>
 <h1>添加部门</h1>
-<form action="../dept/adddept" method="post">
-部门名称：<input type="text" name="name" /><br><br>
-详细描述：<input type="text" name="remark" /><br><br>
+<form action="../document/adddocument" enctype="multipart/form-data" method="post">
+文档标题：<input type="text" name="title" /><br><br>
+文档描述：<textarea rows="11" cols="88" name="remark"></textarea><br><br>
+文档：<input type="file" name="file"><br><br>
 <input type="submit" value="添加" />
 </form>
 </body>

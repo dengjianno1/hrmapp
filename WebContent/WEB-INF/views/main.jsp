@@ -10,8 +10,8 @@
 <body>
 	<%@ include file="menu.html" %>
 	<h1>当前在线用户</h1>
-	<p>用户姓名：<c:out value="${user.username}"></c:out></p><br>
-	<p>登录名：<c:out value="${user.loginname}"></c:out></p><br>
-	<p>创建时间:<c:out value="${user.createDate}"></c:out></p><br>
+	<p>用户姓名：<c:out value="${sessionScope.user.username}"></c:out></p><br>
+	<p>登录名：<c:out value="${sessionScope.user.loginname}"></c:out></p><br>
+	<p>创建时间:<c:out value="${sessionScope.user.createDate}"></c:out></p><br>
 </body>
 </html>
